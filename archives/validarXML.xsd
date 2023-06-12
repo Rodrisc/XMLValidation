@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- elemento raiz -->
+    <xs:element name="root">
+    <!-- define como elemento complexo, isso é, tem outros elementos dentro -->
+        <xs:complexType>
+        <!-- define a sequencia exata dos elementos, ex: 1, 2, 3 -->
+            <xs:sequence>
+            <!-- define o segundo elemento raiz -->
+            <!-- define que pode ter vários elementos pessoa e/ou nenhum -->
+            
+                <xs:element name='pessoa' maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                        
+                            <xs:element name="nome">
+                            <!-- define que o elemento é do tipo simples - que não tem outros elemento dentro -->
+                                <xs:simpleType>
+                                <!-- restrição que define o campo somente do tipo string -->
+                                    <xs:restriction base='xs:string'>
+                                        <xs:whiteSpace value="collapse"/>
+                                    <!-- restrição onde não tem restrição de tamanho e que começa OBRIGATÓRIAMENTE com letra maiúscula -->
+                                        <xs:pattern value="([A-Z][a-zA-Z]*)"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <xs:element name="nascimento">
+                                <xs:simpleType>
+                                <!-- define o campo do tipo data no formato YYYY/MM/DD-->
+                                    <xs:restriction base="xs:date"/>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <xs:element name='idade'>
+                                <xs:simpleType>
+                                <!-- define o campo como somente integer -->
+                                    <xs:restriction base='xs:integer'>
+                                    <!-- Define que o campo pode conter números de 0 até 120 -->
+                                        <xs:maxInclusive value="120"/>
+                                        <xs:minInclusive value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <xs:element name='peso'>
+                                <xs:simpleType>
+                                <!-- define o campo como somente float -->
+                                <!-- define que os valores podem ser de 50 até 150 -->
+                                    <xs:restriction base="xs:float">
+                                    <xs:maxInclusive value="150.00"/>
+                                    <xs:minInclusive value="50.00"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <xs:element name="sexo">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                    <!-- define que o campo só aceita esses seguintes valores -->
+                                    <!-- Os valores só seram aceitos se estiverem conforme a regra -->
+                                    <!-- Letras maiúscula no início  -->
+                                        <xs:pattern value="Masculino|Feminino"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Define que só pode existir no mínimo e no máximo um elemento chamada veiculo -->
+                <!-- portanto esse campo torna-se obrigatório -->
+                <xs:element name="veiculo" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="tipo">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                    <!-- define que o campo aceita APENAS os valores abaixo -->
+                                        <xs:enumeration value="Moto"/>
+                                        <xs:enumeration value="Carro"/>
+                                        <xs:enumeration value="Caminhão"/>
+                                    </xs:restriction>  
+                                </xs:simpleType>
+                            </xs:element>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

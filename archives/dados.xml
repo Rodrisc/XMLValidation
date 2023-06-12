@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<?xml-model href="validarXML.xsd"?>
+<root>
+    <pessoa>
+        <nome>Rodrigo</nome>
+        <nascimento>1997-05-05</nascimento>
+        <idade>26</idade>
+        <peso>150.00</peso>
+        <sexo>Masculino</sexo>
+    </pessoa>
+
+    <veiculo>
+        <tipo>Moto</tipo>
+    </veiculo>
+</root>
