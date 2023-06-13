@@ -1,15 +1,32 @@
 <?xml version='1.0'?>
 <?xml-model href="validarXML.xsd"?>
 <root>
-    <pessoa>
+    <pessoa tipo='Masculino'>
         <nome>Rodrigo</nome>
-        <nascimento>1997-05-05</nascimento>
+        <nascimento>1908-02-02</nascimento>
         <idade>26</idade>
         <peso>150.00</peso>
         <sexo>Masculino</sexo>
+        <!-- Ordem do telefone - (00) 0 0000-0000 -->
+        <telefone>(84) 9 9200-0050</telefone>
     </pessoa>
 
-    <veiculo>
+    <veiculo tipo='Leve'>
         <tipo>Moto</tipo>
+        <!-- A = Álcool, G = Gasolina, F = Flex, D = Diesel -->
+        <combustivel>A</combustivel>
     </veiculo>
+
+    <!-- ==================================================== -->
+
+    <tipoDados>
+        <boolean>true</boolean>
+        <string>isso é uma string</string>
+        <data>2023-06-14</data>
+         <!-- h  m  s  m -->
+        <hora>10:50:25.99</hora>
+        <dateTime>2023-06-14T10:50:25</dateTime>
+        <numero>12456</numero>
+
+    </tipoDados>
 </root>
