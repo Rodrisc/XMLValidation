@@ -4,6 +4,11 @@ class XMLValidator
 {
     public function validateXML()
     {
+        // a mensagem de warning será exibida no navegador.
+        // Para que ela não seja exibida, você pode informar
+        // que irá tratar isso internamente com a função
+        // libxml_use_internal_errors
+
         libxml_use_internal_errors(true);
 
         $objDOM = new DOMDocument();
@@ -11,6 +16,7 @@ class XMLValidator
 
         try{
             if (!$objDOM->schemaValidate('../archives/validarXML.xsd')) {
+                // pegando os erros encontrado com libxml_get_errors:
                 $arrayErrors = libxml_get_errors();
                 return $arrayErrors;
             } else {
